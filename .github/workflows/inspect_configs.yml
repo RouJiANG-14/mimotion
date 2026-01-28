@@ -18,9 +18,6 @@ jobs:
         with:
           python-version: "3.10"
           
-      - name: Install dependencies
-        run: pip install requests pycryptodome pytz
-        
       - name: 开始
         env:
             INSPECT_WECHAT_HOOK_KEY: ${{ secrets.INSPECT_WECHAT_HOOK_KEY }} # 指定微信通知的KEY
@@ -31,6 +28,6 @@ jobs:
             AES_KEY: ${{ secrets.AES_KEY }}
             PAT: ${{ secrets.PAT }}
         run: |
-          pip3 install requests pycryptodome
+          pip3 install requests pycryptodome pytz
           python3 inspect_configs.py
 
